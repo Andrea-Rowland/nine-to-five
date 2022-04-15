@@ -9,14 +9,14 @@ $(document).ready(function(){
         localStorage.setItem(time, text);
     });
 
-    // $("#9 .description").text(localStorage.getItem("9"));
-    // $("#10 .description").text(localStorage.getItem("10"));
-    // $("#11 .description").text(localStorage.getItem("11"));
-    // $("#12 .description").text(localStorage.getItem("12"));
-    // $("#13 .description").text(localStorage.getItem("13"));
-    // $("#14 .description").text(localStorage.getItem("14"));
-    // $("#15 .description").text(localStorage.getItem("15"));
-    // $("#16 .description").text(localStorage.getItem("16"));
+    $("#9 .description").text(localStorage.getItem("9"));
+    $("#10 .description").text(localStorage.getItem("10"));
+    $("#11 .description").text(localStorage.getItem("11"));
+    $("#12 .description").text(localStorage.getItem("12"));
+    $("#13 .description").text(localStorage.getItem("13"));
+    $("#14 .description").text(localStorage.getItem("14"));
+    $("#15 .description").text(localStorage.getItem("15"));
+    $("#16 .description").text(localStorage.getItem("16"));
 
     function updateColor() {
         var currentHour = moment().hour();
