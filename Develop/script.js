@@ -1,48 +1,40 @@
-// GLOBAL VARIABLES
-var d = new Date()
-var container = $(".container");
-var time = [9,10, 11, 12, 1, 2, 3, 4, 5]
+$(document).ready(function(){
+    // MEDIA QUERY TO DISPLAY CURRENT DATE WITH JQUERY
+    $("#currentDay").text(moment().format("MMMM Do YYYY"));
 
-// MEDIA QUERIES
-var currentDay = moment().format("MMMM Do YYYY");
+    $(".saveBtn").on("click", function(){
+        var time = $(this).parent().attr("id");
+        var text = $(this).siblings(".description").val();
+        
+        localStorage.setItem(time, text);
+    });
 
-$("#currentDay").text(moment().format("MMMM Do YYYY"));
-// END MEDIA QUERIES
+    // $("#9 .description").text(localStorage.getItem("9"));
+    // $("#10 .description").text(localStorage.getItem("10"));
+    // $("#11 .description").text(localStorage.getItem("11"));
+    // $("#12 .description").text(localStorage.getItem("12"));
+    // $("#13 .description").text(localStorage.getItem("13"));
+    // $("#14 .description").text(localStorage.getItem("14"));
+    // $("#15 .description").text(localStorage.getItem("15"));
+    // $("#16 .description").text(localStorage.getItem("16"));
 
-console.log("test");
+    function updateColor() {
+        var currentHour = moment().hour();
 
-// time array
+        $(".row").each(function(){
+            var blockHour = parseInt($(this).attr("id"));
 
-for (const timeSetep of time) {
-    var dateInput = $("<input>")
-    .addClass("row")
-    
-}
+            if (blockHour < currentHour) {
+                $(this).addClass("past");
+            } else if(blockHour === currentHour){
+                $(this).removeClass("past");
+                $(this).addClass("present");
+            } else {
+                $(this).removeClass("past");
+                $(this).removeClass("present");
+                $(this).addClass("future");
+            }
+        })
+    }
 
-$(".container")
-var timeArray = [
-    "9AM",
-    "10AM",
-    "11AM",
-    "12PM",
-    "1PM",
-    "2PM",
-    "3PM",
-    "4PM",    
-]
-
-console.log(d.getHours())
-// for loop out of time array
-for (let i = 0; i < timeArray.length; i++) {
-
-}
-
-//create elements using jquery, then append the elements to the div container
-
-
-
-
-
-
-
-
+    updateColor();
